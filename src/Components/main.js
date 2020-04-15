@@ -6,31 +6,31 @@ class main extends React.Component{
         x:0,
         y:0
     }
-    goUp=()=>{
-        this.setState(
-            ({y})=>({
-                y:y-1
-            })
-        );
-    }
-    goDown=()=>{
-        this.setState(
-            ({y})=>({
-                y:y+1
-            })
-        );
-    }
-    goLeft=()=>{
+    goUp=async ()=>{
         this.setState(
             ({x})=>({
                 x:x-1
             })
         );
     }
-    goRight=()=>{
+    goDown=async ()=>{
         this.setState(
             ({x})=>({
                 x:x+1
+            })
+        );
+    }
+    goLeft=async ()=>{
+        this.setState(
+            ({y})=>({
+                y:y-1
+            })
+        );
+    }
+    goRight=async ()=>{
+        this.setState(
+            ({y})=>({
+                y:y+1
             })
         );
     }
@@ -38,23 +38,48 @@ class main extends React.Component{
         alert(this.state.y);
     }
 
+
     render(){
+        let up=null;
+        let down=null;
+        let left=null;
+        let right=null;
+        if(this.state.x>0){
+            up=<button onClick={this.goUp}>Up</button>
+        }else{
+            up=null;
+        }
+        if(this.state.x<10){
+            down=<button onClick={this.goDown}>Down</button>
+        }else{
+            down=null;
+        }if(this.state.y>0){
+            left=<button onClick={this.goLeft}>Left</button>
+        }else{
+            left=null;
+        }if(this.state.y<10){
+            right=<button onClick={this.goRight}>Right</button>
+        }else{
+            right=null;
+        }
+
         return(
             <div class="game">
-                <p>{this.state.x}</p>
+                {this.state.x},{this.state.y}
                 <div class="btn up">
-                    <input type="button" value="ss" onClick={this.goUp}></input>
+                    {up}
                 </div>
                 <div class="middle">
                     <div class="btn left">
-                        <input type="button" value="left" onClick={this.goLeft}></input>
+                        {left}
                     </div>
+                    <button onClick={this.Check}>check</button>
                     <div class="btn right">
-                        <input type="button" value="right" onClick={this.goRight}></input>
+                        {right}
                     </div>
                 </div>
                 <div class="btn down">
-                    <input type="button" value="down" onClick={this.goDown}></input>
+                    {down}
                 </div>
             </div>
         )
