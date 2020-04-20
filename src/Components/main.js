@@ -1,11 +1,16 @@
 import React from 'react';
-import '../css/main.css'
+import '../css/main.css';
+import map from '../modules/map';
 
 class main extends React.Component{
+    
     state={
-        x:0,
-        y:0
+        x:1,
+        y:1,
+        m:map
     }
+    
+
     goUp=async ()=>{
         this.setState(
             ({x})=>({
@@ -40,25 +45,39 @@ class main extends React.Component{
 
 
     render(){
+        
         let up=null;
         let down=null;
         let left=null;
         let right=null;
+        
         if(this.state.x>0){
-            up=<button onClick={this.goUp}>Up</button>
+            if(this.state.m[this.state.x-1][this.state.y]===0)
+                up=<button onClick={this.goUp}>Up</button>
+            else
+                up=null;
         }else{
             up=null;
         }
-        if(this.state.x<10){
-            down=<button onClick={this.goDown}>Down</button>
+        if(this.state.x<8){
+            if(this.state.m[this.state.x+1][this.state.y]===0)
+                down=<button onClick={this.goDown}>Down</button>
+            else
+                down=null;
         }else{
             down=null;
         }if(this.state.y>0){
-            left=<button onClick={this.goLeft}>Left</button>
+            if(this.state.m[this.state.x][this.state.y-1]===0)
+                left=<button onClick={this.goLeft}>Left</button>
+            else
+                left=null;
         }else{
             left=null;
-        }if(this.state.y<10){
-            right=<button onClick={this.goRight}>Right</button>
+        }if(this.state.y<8){
+            if(this.state.m[this.state.x][this.state.y+1]===0)
+                right=<button onClick={this.goRight}>Right</button>
+            else
+                right=null;
         }else{
             right=null;
         }
