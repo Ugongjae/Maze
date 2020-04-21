@@ -4,7 +4,7 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Gnb from './Components/GNB';
 import Main from './Components/main';
-import './App.css';
+import './css/main.css';
 
 function App() {
   return (

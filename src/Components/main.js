@@ -1,6 +1,10 @@
 import React from 'react';
-import '../css/main.css';
 import map from '../modules/map';
+import downbtn from 'img/down.png';
+import leftbtn from 'img/left.png';
+import rightbtn from 'img/right.png';
+import upbtn from 'img/up.png';
+
 
 class main extends React.Component{
     
@@ -53,7 +57,7 @@ class main extends React.Component{
         
         if(this.state.x>0){
             if(this.state.m[this.state.x-1][this.state.y]===0)
-                up=<button onClick={this.goUp}>Up</button>
+                up=<button onClick={this.goUp}><img src={upbtn} alt="UpBtn" width="48" height="48"></img></button>
             else
                 up=null;
         }else{
@@ -61,21 +65,21 @@ class main extends React.Component{
         }
         if(this.state.x<8){
             if(this.state.m[this.state.x+1][this.state.y]===0)
-                down=<button onClick={this.goDown}>Down</button>
+                down=<button onClick={this.goDown}><img src={downbtn} alt="DownBtn" width="48" height="48"></img></button>
             else
                 down=null;
         }else{
             down=null;
         }if(this.state.y>0){
             if(this.state.m[this.state.x][this.state.y-1]===0)
-                left=<button onClick={this.goLeft}>Left</button>
+                left=<button onClick={this.goLeft}><img src={leftbtn} alt="LeftBtn" width="48" height="48"></img></button>
             else
                 left=null;
         }else{
             left=null;
         }if(this.state.y<8){
             if(this.state.m[this.state.x][this.state.y+1]===0)
-                right=<button onClick={this.goRight}>Right</button>
+                right=<button onClick={this.goRight}><img src={rightbtn} alt="RightBtn" width="48" height="48"></img></button>
             else
                 right=null;
         }else{
@@ -83,23 +87,23 @@ class main extends React.Component{
         }
 
         return(
-            <div class="game">
-                {this.state.x},{this.state.y}
-                <div class="btn up">
-                    {up}
-                </div>
+            <div id="game">
+                
                 <div class="middle">
+                    <div class="btn up">
+                        {up}
+                    </div>
                     <div class="btn left">
                         {left}
                     </div>
-                    <button onClick={this.Check}>check</button>
                     <div class="btn right">
                         {right}
                     </div>
+                    <div class="btn down">
+                        {down}
+                    </div>
                 </div>
-                <div class="btn down">
-                    {down}
-                </div>
+                
             </div>
         )
     }
