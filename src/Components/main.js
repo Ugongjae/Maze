@@ -23,15 +23,16 @@ class main extends React.Component{
         axios.get("http://localhost:8080/game/move",{headers:{"x":this.state.x-1,"y":this.state.y}})
             .then((res)=>{
                 console.log(res.data);
-                // response=JSON.parse(res.data)
-                // this.setState(
-                //     ({up,down,left,right})=>({
-                //         up:response.up,
-                //         down:response.down,
-                //         left:response.left,
-                //         right:response.right
-                //     })
-                // )
+                let response=res.data
+                this.setState(
+                    ({
+                        up:response.up,
+                        down:response.down,
+                        left:response.left,
+                        right:response.right,
+                        x:this.state.x-1
+                    })
+                )
             });
     }
     goDown=async ()=>{
@@ -42,15 +43,17 @@ class main extends React.Component{
         // );
         axios.get("http://localhost:8080/game/move",{headers:{"x":this.state.x+1,"y":this.state.y}})
             .then((res)=>{
-                // response=JSON.parse(res.data)
-                // this.setState(
-                //     ({up,down,left,right})=>({
-                //         up:response.up,
-                //         down:response.down,
-                //         left:response.left,
-                //         right:response.right
-                //     })
-                // )
+                console.log(res.data);
+                let response=res.data
+                this.setState(
+                    ({
+                        up:response.up,
+                        down:response.down,
+                        left:response.left,
+                        right:response.right,
+                        x:this.state.x+1
+                    })
+                )
             });
     }
     goLeft=async ()=>{
@@ -61,34 +64,33 @@ class main extends React.Component{
         // );
         axios.get("http://localhost:8080/game/move",{headers:{"x":this.state.x,"y":this.state.y-1}})
             .then((res)=>{
-                // response=JSON.parse(res.data)
-                // this.setState(
-                //     ({up,down,left,right})=>({
-                //         up:response.up,
-                //         down:response.down,
-                //         left:response.left,
-                //         right:response.right
-                //     })
-                // )
+                console.log(res.data);
+                let response=res.data
+                this.setState(
+                    ({
+                        up:response.up,
+                        down:response.down,
+                        left:response.left,
+                        right:response.right,
+                        y:this.state.y-1
+                    })
+                )
             });
     }
     goRight=async ()=>{
-        // this.setState(
-        //     ({y})=>({
-        //         y:y+1
-        //     })
-        // );
         axios.get("http://localhost:8080/game/move",{headers:{"x":this.state.x,"y":this.state.y+1}})
             .then((res)=>{
-                // response=JSON.parse(res.data)
-                // this.setState(
-                //     ({up,down,left,right})=>({
-                //         up:response.up,
-                //         down:response.down,
-                //         left:response.left,
-                //         right:response.right
-                //     })
-                // )
+                console.log(res.data);
+                let response=res.data
+                this.setState(
+                    ({
+                        up:response.up,
+                        down:response.down,
+                        left:response.left,
+                        right:response.right,
+                        y:this.state.y+1
+                    })
+                )
             });
     }
     Check=()=>{
