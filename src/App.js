@@ -6,10 +6,10 @@ import './css/main.css'
 
 function App() {
   return (
-    <Switch>
-      <Route path="/" component="Main"></Route>
-      <Route path="/login" component="Login"></Route>
-    </Switch>
+      <Switch>
+        <Route exact path="/" component={Main}></Route>
+        <Route path="/login" component={Login}></Route>
+      </Switch>
   );
 }
 
