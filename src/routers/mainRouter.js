@@ -1,6 +1,6 @@
 import React from 'react';
 import {Router, Switch, Route} from 'react-router-dom'
-import Home from '../Components/Home'
+import Home from '../Components/Main'
 import Login from '../Components/Login'
 
 class mainRouter extends React.Component{

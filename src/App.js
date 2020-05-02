@@ -1,15 +1,15 @@
 import React from 'react';
-import {Route} from 'react-router-dom'
-import Home from './Components/Home'
+import {Route,Router,Switch} from 'react-router-dom'
+import Main from './Components/Main'
 import Login from './Components/Login'
-import Router from './routers/mainRouter'
 import './css/main.css'
 
 function App() {
   return (
-    <div>
-      <Router></Router>
-    </div>
+    <Switch>
+      <Route path="/" component="Main"></Route>
+      <Route path="/login" component="Login"></Route>
+    </Switch>
   );
 }
 
