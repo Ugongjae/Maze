@@ -1,20 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import Gnb from './Components/GNB';
-import Main from './Components/main';
-import './css/main.css';
+import {Route,Router,Switch} from 'react-router-dom'
+import Main from './Components/Main'
+import Login from './Components/Login'
+import './css/main.css'
 
 function App() {
   return (
-    <div className="App">
-      <Gnb/>
-      <Header/>
-      <Main/>
-      <Footer/>
-      
-    </div>
+    <Switch>
+      <Route path="/" component="Main"></Route>
+      <Route path="/login" component="Login"></Route>
+    </Switch>
   );
 }
 
