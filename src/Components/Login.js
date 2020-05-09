@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 class Login extends React.Component{
+    constructor(props){
+        super(props);
+    }
     state={
         username:"",
         password:""
@@ -23,7 +26,7 @@ class Login extends React.Component{
         }))
     }
 
-    submitHandler=()=>{
+    submitHandler=async ()=>{
         let login_info={
             method:"POST",
             body:JSON.stringify(this.state),
@@ -31,21 +34,21 @@ class Login extends React.Component{
                 "Content-Type":"application/json"
             }
         }
-        axios.post("http://localhost:8080/login",login_info)
-            .then((res)=>{
-                let response=res.headers;
-                alert(response)
-            })
-
+        fetch("http://localhost:8080/login",this.state)
+            .then(
+                (res)=>{
+                    console.log("s"+res)
+                }
+            )
     }
 
     render(){
         return(
             <div>
-                <form onSubmit={this.submitHandler}>
+                <form>
                     <input type="text" name="id" onChange={this.setUsername}></input>
                     <input type="text" name="pw" onChange={this.setPassword}></input>
-                    <input type="submit"></input>
+                    <input type="submit" onClick={this.submitHandler}></input>
                 </form>
             </div>
         )
